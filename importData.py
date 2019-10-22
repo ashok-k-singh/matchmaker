@@ -111,34 +111,34 @@ df[[
     .drop_duplicates()\
     .rename(
         columns={
-            'attr1_1': 'attr1',
-            'sinc1_1': 'sinc1',
+            'attr1_1':  'attr1',
+            'sinc1_1':  'sinc1',
             'intel1_1': 'intel1',
-            'fun1_1': 'fun1',
-            'amb1_1': 'amb1',
-            'shar1_1': 'shar1',
-            'attr4_1': 'attr4',
-            'sinc4_1': 'sinc4',
+            'fun1_1':   'fun1',
+            'amb1_1':   'amb1',
+            'shar1_1':  'shar1',
+            'attr4_1':  'attr4',
+            'sinc4_1':  'sinc4',
             'intel4_1': 'intel4',
-            'fun4_1': 'fun4',
-            'amb4_1': 'amb4',
-            'shar4_1': 'shar4',
-            'attr2_1': 'attr2',
-            'sinc2_1': 'sinc2',
+            'fun4_1':   'fun4',
+            'amb4_1':   'amb4',
+            'shar4_1':  'shar4',
+            'attr2_1':  'attr2',
+            'sinc2_1':  'sinc2',
             'intel2_1': 'intel2',
-            'fun2_1': 'fun2',
-            'amb2_1': 'amb2',
-            'shar2_1': 'shar2',
-            'attr3_1': 'attr3',
-            'sinc3_1': 'sinc3',
-            'fun3_1': 'fun3',
+            'fun2_1':   'fun2',
+            'amb2_1':   'amb2',
+            'shar2_1':  'shar2',
+            'attr3_1':  'attr3',
+            'sinc3_1':  'sinc3',
+            'fun3_1':   'fun3',
             'intel3_1': 'intel3',
-            'amb3_1': 'amb3',
-            'attr5_1': 'attr5',
-            'sinc5_1': 'sinc5',
+            'amb3_1':   'amb3',
+            'attr5_1':  'attr5',
+            'sinc5_1':  'sinc5',
             'intel5_1': 'intel5',
-            'fun5_1': 'fun5',
-            'amb5_1': 'amb5'
+            'fun5_1':   'fun5',
+            'amb5_1':   'amb5'
         }
     )\
     .to_sql('Baseline',
@@ -161,17 +161,17 @@ df[[
     .drop_duplicates()\
     .rename(
         columns={
-            'attr1_s': 'attr1',
-            'sinc1_s': 'sinc1',
+            'attr1_s':  'attr1',
+            'sinc1_s':  'sinc1',
             'intel1_s': 'intel1',
-            'fun1_s': 'fun1',
-            'amb1_s': 'amb1',
-            'shar1_s': 'shar1',
-            'attr3_s': 'attr3',
-            'sinc3_s': 'sinc3',
+            'fun1_s':   'fun1',
+            'amb1_s':   'amb1',
+            'shar1_s':  'shar1',
+            'attr3_s':  'attr3',
+            'sinc3_s':  'sinc3',
             'intel3_s': 'intel3',
-            'fun3_s': 'fun3',
-            'amb3_s': 'amb3'
+            'fun3_s':   'fun3',
+            'amb3_s':   'amb3'
         }
     )\
     .to_sql('Midpoint',
@@ -263,10 +263,6 @@ df[[
     .to_sql('FollowUp1',
             con=engine)
 
-
-
-
-
 # Survey 3
 df[[
     'date_3',
@@ -310,44 +306,43 @@ df[[
     .drop_duplicates()\
     .rename(
         columns={
-            'date_3': 'date',
+            'date_3':   'date',
             'numdat_3': 'numdat',
             'num_in_3': 'num_in',
-            'attr1_3': 'attr1',
-            'sinc1_3': 'sinc1',
+            'attr1_3':  'attr1',
+            'sinc1_3':  'sinc1',
             'intel1_3': 'intel1',
-            'fun1_3': 'fun1',
-            'amb1_3': 'amb1',
-            'shar1_3': 'shar1',
-            'attr7_3': 'attr7',
-            'sinc7_3': 'sinc7',
+            'fun1_3':   'fun1',
+            'amb1_3':   'amb1',
+            'shar1_3':  'shar1',
+            'attr7_3':  'attr7',
+            'sinc7_3':  'sinc7',
             'intel7_3': 'intel7',
-            'fun7_3': 'fun7',
-            'amb7_3': 'amb7',
-            'shar7_3': 'shar7',
-            'attr4_3': 'attr4',
-            'sinc4_3': 'sinc4',
+            'fun7_3':   'fun7',
+            'amb7_3':   'amb7',
+            'shar7_3':  'shar7',
+            'attr4_3':  'attr4',
+            'sinc4_3':  'sinc4',
             'intel4_3': 'intel4',
-            'fun4_3': 'fun4',
-            'amb4_3': 'amb4',
-            'shar4_3': 'shar4',
-            'attr2_3': 'attr2',
-            'sinc2_3': 'sinc2',
+            'fun4_3':   'fun4',
+            'amb4_3':   'amb4',
+            'shar4_3':  'shar4',
+            'attr2_3':  'attr2',
+            'sinc2_3':  'sinc2',
             'intel2_3': 'intel2',
-            'fun2_3': 'fun2',
-            'amb2_3': 'amb2',
-            'shar2_3': 'shar2',
-            'attr3_3': 'attr3',
-            'sinc3_3': 'sinc3',
+            'fun2_3':   'fun2',
+            'amb2_3':   'amb2',
+            'shar2_3':  'shar2',
+            'attr3_3':  'attr3',
+            'sinc3_3':  'sinc3',
             'intel3_3': 'intel3',
-            'fun3_3': 'fun3',
-            'amb3_3': 'amb3',
-            'attr5_3': 'attr5',
-            'sinc5_3': 'sinc5',
+            'fun3_3':   'fun3',
+            'amb3_3':   'amb3',
+            'attr5_3':  'attr5',
+            'sinc5_3':  'sinc5',
             'intel5_3': 'intel5',
-            'fun5_3': 'fun5',
-            'amb5_3': 'amb5'
-
+            'fun5_3':   'fun5',
+            'amb5_3':   'amb5'
         }
     )\
     .to_sql('FollowUp2',
