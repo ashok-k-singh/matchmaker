@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+      <title>matchmaker</title>
+   </head>
+
+   <body>
+      <form>
+         <div class="form-group row">
+            <h1>Tell Us About You!</h1>
+         </div>
+
+         <fieldset class="form-group">
+            <div class="row">
+               <legend class="col-form-label col-sm-2 pt-0"><strong>Gender</strong></legend>
+               <div class="col-sm-10">
+                  <div class="form-check">
+                     <input class="form-check-input" type="radio" name="gender" id="radioFemale" value="0" checked>
+                     <label class="form-check-label" for="radioFemale">
+                        Female
+                     </label>
+                  </div>
+                  <div class="form-check">
+                     <input class="form-check-input" type="radio" name="gender" id="radioMale" value="1">
+                     <label class="form-check-label" for="radioMale">
+                        Male
+                     </label>
+                  </div>
+               </div>
+            </div>
+         </fieldset>
+
+         <div class="form-group">
+            <label class="control-label" for="DOB">Date of Birth</label>
+            <input class="form-control" id="DOB" name="DOB" placeholder="MM/DD/YYYY" type="text"/>
+         </div>
+
+         <fieldset class="form-group">
+            <div class="row">
+               <legend class="col-form-label col-sm-2 pt-0"><strong>Race</strong></legend>
+               <div class="col-sm-10">
+                  <div class="form-check">
+                     <input class="form-check-input" type="radio" name="race" id="radioRace1" value="1" checked>
+                     <label class="form-check-label" for="radioRace1">
+                        Black/African American
+                     </label>
+                  </div>
+                  <div class="form-check">
+                     <input class="form-check-input" type="radio" name="race" id="radioRace2" value="2">
+                     <label class="form-check-label" for="radioRace2">
+                        European/Caucasian-American
+                     </label>
+                  </div>
+                  <div class="form-check">
+                     <input class="form-check-input" type="radio" name="race" id="radioRace3" value="3">
+                     <label class="form-check-label" for="radioRace3">
+                        Latino/Hispanc American
+                     </label>
+                  </div>
+                  <div class="form-check">
+                     <input class="form-check-input" type="radio" name="race" id="radioRace4" value="4">
+                     <label class="form-check-label" for="radioRace4">
+                        Asian/Pacific Islander/Asian-American
+                     </label>
+                  </div>
+                  <div class="form-check">
+                     <input class="form-check-input" type="radio" name="race" id="radioRace5" value="5">
+                     <label class="form-check-label" for="radioRace5">
+                        Native American
+                     </label>
+                  </div>
+                  <div class="form-check">
+                     <input class="form-check-input" type="radio" name="race" id="radioRace6" value="6">
+                     <label class="form-check-label" for="radioRace6">
+                        Other
+                     </label>
+                  </div>
+                  <br> 
+                  <div>
+                     <label for="imprace">On a scale of 1-10, how important is it to you to be of the same race or ethnicity as your parner?</label>
+                     <div>
+                        <input type="range" class="no-border" id="imprace" min=1 step=1 max=10>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </fieldset>
+
+         <fieldset class="form-group">
+            <div class="row">
+               <legend class="col-form-label col-sm-2 pt-0"><strong>Attraction Profile</strong></legend>
+               <div>
+                  <p>How would you rate yourself with regard to the following attributes?  <i>Be honest!</i></p>
+               </div>
+               <div>
+                  <label for="attr">Attractiveness</label>
+                  <div>
+                     <input type="range" class="no-border" id="attr" min=1 step=1 max=10>
+                  </div>
+                  <label for="sinc">Sincerity</label>
+                  <div>
+                     <input type="range" class="no-border" id="sinc" min=1 step=1 max=10>
+                  </div>
+                  <label for="intel">Intelligence</label>
+                  <div>
+                     <input type="range" class="no-border" id="intel" min=1 step=1 max=10>
+                  </div>
+                  <label for="fun">Fun</label>
+                  <div>
+                     <input type="range" class="no-border" id="fun" min=1 step=1 max=10>
+                  </div>
+                  <label for="amb">Ambition</label>
+                  <div>
+                     <input type="range" class="no-border" id="amb" min=1 step=1 max=10>
+                  </div>
+               </div>
+            </div>
+            </div>
+         </fieldset>
+
+         <fieldset class="form-group">
+            <div class="row">
+               <legend class="col-form-label col-sm-2 pt-0"><strong>Interests</strong></legend>
+               <div>
+                  <p>How would you rate your level of interest in the following activities?</p>
+               </div>
+               <div>
+
+                  <label for="sports">Playing Sports / Athletics</label>
+                  <div>
+                     <input type="range" class="no-border" id="sports" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="tvsports">Watching sports</label>
+                  <div>
+                     <input type="range" class="no-border" id="tvsports" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="excersice">Body building / Exercising</label>
+                  <div>
+                     <input type="range" class="no-border" id="excersice" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="dining">Dining out</label>
+                  <div>
+                     <input type="range" class="no-border" id="dining" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="museums">Museums / Galleries</label>
+                  <div>
+                     <input type="range" class="no-border" id="museums" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="art">Art</label>
+                  <div>
+                     <input type="range" class="no-border" id="art" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="hiking">Hiking / Camping</label>
+                  <div>
+                     <input type="range" class="no-border" id="hiking" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="gaming">Gaming</label>
+                  <div>
+                     <input type="range" class="no-border" id="gaming" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="clubbing">Dancing / Clubbing </label>
+                  <div>
+                     <input type="range" class="no-border" id="clubbing" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="reading">Reading</label>
+                  <div>
+                     <input type="range" class="no-border" id="reading" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="tv">Watching TV</label>
+                  <div>
+                     <input type="range" class="no-border" id="tv" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="theater">Theatre</label>
+                  <div>
+                     <input type="range" class="no-border" id="theater" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="movies">Movies</label>
+                  <div>
+                     <input type="range" class="no-border" id="movies" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="concerts">Going to concerts</label>
+                  <div>
+                     <input type="range" class="no-border" id="concerts" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="music">Music</label>
+                  <div>
+                     <input type="range" class="no-border" id="music" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="shopping">Shopping</label>
+                  <div>
+                     <input type="range" class="no-border" id="shopping" min=1 step=1 max=10>
+                  </div>
+
+                  <label for="yoga">Yoga / Meditation</label>
+                  <div>
+                     <input type="range" class="no-border" id="yoga" min=1 step=1 max=10>
+                  </div>
+
+               </div>
+            </div>
+            </div>
+         </fieldset>
+
+
+         <div class="form-group row">
+            <div class="col-sm-10">
+               <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+         </div>
+      </form>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   </body>
+</html>
+
+
+
+<!-- This is supposed to make a calendar open... ?-->
+<!---
+<script>
+$(document).ready(function(){
+   var date_input=$('input[name="DOB"]');
+   var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+   var options={
+      format: 'mm/dd/yyyy',
+      container: container,
+      todayHighlight: true,
+      autoclose: true,
+   };
+   date_input.datepicker(options);
+
+   var slider = document.getElementById("imprace");
+   var output = document.getElementById("impout");
+   output.innerHTML = slider.value; // Display the default slider value
+
+   // Update the current slider value (each time you drag the slider handle)
+   slider.oninput = function() {
+   output.innerHTML = this.value;
+} 
+
+})
+</script>
+-->
