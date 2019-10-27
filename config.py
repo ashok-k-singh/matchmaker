@@ -1,6 +1,0 @@
-pghost = 'aws-matchmaker-db.cysdu1riiepj.us-west-2.rds.amazonaws.com'
-pgport = '5432'
-pguser = 'root'
-pgpassword = 'match123'
-pgdatabase = 'matchmaker_db'
-secret_key = 'a considerably less secure string than one would expect'
