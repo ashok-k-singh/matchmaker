@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="static/css/styles.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+    <title>matchmaker</title>
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-light bg-light">
+      <span class="navbar-brand">matchmaker</span>
+    </nav>
+    <div class="container-fluid" style="background: linear-gradient(to right bottom, #3fb660, #4db165, #58ac69, #61a66e, #69a172, #76a77e, #83ac89, #90b295, #a7c4ab, #bfd7c1, #d7ead8, #effdf0);">
+      <div class="row py-5 justify-content-center" style="height: calc(100vh - 100px);">
+        <div class="col-7">
+          <div class="card">
+            <div class="card-header">
+              <span class="h3 text-dark align-middle"><a href="/">&lt;&nbsp;</a>Welcome! Who are you?</span>
+            </div>
+            <div class="card-body">
+              <form method="post">
+                <div class="form-row mb-4">
+                  <div class="col">
+                    <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+                  </div>
+                  <div class="col">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                  </div>
+                </div>
+                <div class="form-row mb-4">
+                  <div class="col">
+                    <input type="text" name="firstname" class="form-control" placeholder="First Name" required>
+                  </div>
+                  <div class="col">
+                    <input type="text" name="lastname" class="form-control" placeholder="Last Name" required>
+                  </div>
+                </div>
+                <div class="form-row mb-4">
+                  <div class="col-3">
+                    <select class="custom-select" name="gender">
+                        <option selected>Gender...</option>
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select>
+                  </div>
+                  <div class="col-3">
+                    <input type="number" name="age" class="form-control" placeholder="Age" min="18" max="125" required>
+                  </div>
+                  <div class="col-6">
+                    <select class="form-control" name="race" required>
+                        <option selected>Race...</option>
+                        <option value="1">African-American</option>
+                        <option value="2">Caucasian-American</option>
+                        <option value="3">Hispanic-American</option>
+                        <option value="4">Asian-American</option>
+                        <option value="5">Native-American</option>
+                        <option value="6">Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row mb-4">
+                  <label for="fieldImpRace">How important is it to you that a person you date be of the same racial/ethnic background?</label>
+                  <select class="form-control" name="imprace">
+                    <option value="1">1 (irrelevant)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10 (a deal breaker)</option>
+                  </select>
+                </div>
+                <span class="d-flex mb-0">Please rate your opinion of your own attributes, on a scale of 1 to 10 (be honest!)...</span>
+                <div class="form-row mb-2">
+                  <div class="col col-form-label">
+                    <label for="fieldAttr">Attractive</label>
+                    <select class="form-control" name="attr">
+                      <option value="1">1 (awful)</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5" selected>5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10 (great)</option>
+                    </select>
+                  </div>
+                  <div class="col col-form-label">
+                    <label for="fieldSinc">Sincere</label>
+                    <select class="form-control" name="sinc">
+                      <option value="1">1 (awful)</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5" selected>5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10 (great)</option>
+                    </select>
+                  </div>
+                  <div class="col col-form-label">
+                    <label for="fieldFun">Fun</label>
+                    <select class="form-control" name="fun">
+                      <option value="1">1 (awful)</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5" selected>5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10 (great)</option>
+                    </select>
+                  </div>
+                  <div class="col col-form-label">
+                    <label for="fieldInt">Intelligent</label>
+                    <select class="form-control" name="intel">
+                      <option value="1">1 (awful)</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5" selected>5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10 (great)</option>
+                    </select>
+                  </div>
+                  <div class="col col-form-label">
+                    <label for="fieldAmb">Ambitious</label>
+                    <select class="form-control" name="amb">
+                      <option value="1">1 (awful)</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5" selected>5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10 (great)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row mb-4">
+                  <input type="text" name="photo" class="form-control" placeholder="Your Photo URL" min="10" max="255" required>
+                </div>
+                <button type="submit" class="btn btn-lg btn-success btn-block">
+                  <span class="lead">Next</span>
+                </button>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
