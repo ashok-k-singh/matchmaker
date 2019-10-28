@@ -7,13 +7,16 @@ function displayMatches(matchData) {
 
     if (matchData.length > 0) {
 
-        el.innerHTML += '<h1>Your matches:</h1></br>'
+        el.innerHTML += '<h1>Your matches:</h1></br>';
 
-        el.innerHTML += '<div class="card-deck"'
+        el.innerHTML += '<div id="matchDeck" class="card-columns">';
+
+        var dk = document.getElementById("matchDeck");
+
             matchData.forEach((match) => {
-                    el.innerHTML += 
+                    dk.innerHTML += 
                     `
-                    <div class="card" style="width:350px">
+                    <div class="card" style="width:300px">
                         <img class="card-img-top" src="${match['photo']}" alt="${match['screenname']}">
                         <div class="card-body">
                             <h5 class="card-title">${match['screenname']}</h5>
@@ -21,10 +24,8 @@ function displayMatches(matchData) {
                             <div class="card-text">Email: ${match['email']}</div>
                         </div>
                     </div>
-                    </br>
                     `
-                    });
-        el.innerHTML += '</div></br>'        
+                    });      
     } else {
         el.innerHTML += '<h4>Sorry! No matches yet. Check back later!</h4><br>'
     }
