@@ -23,7 +23,7 @@
                     <a class="nav-link" href="#">Matches</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="update">My Profile</a>
+                    <a class="nav-link" href="#">My Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Logout</a>
@@ -36,11 +36,9 @@
         </div>
     </nav>
     <div class="container-fluid" style="background: linear-gradient(to right bottom, #3fb660, #4db165, #58ac69, #61a66e, #69a172, #76a77e, #83ac89, #90b295, #a7c4ab, #bfd7c1, #d7ead8, #effdf0);">
-      <div class="row py-5 justify-content-center" style="height: calc(100vh - 100px);">
-        <div class="col-6">
-            <div class="card">
-                <span d-flex>Sorry :( No matches found but stay tuned!</span>
-            </div>
+      <div class="row py-5 justify-content-center">
+        <div class="col-8">
+            <div id="matchResults"></div>
         </div>
       </div>
     </div>
@@ -50,6 +48,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <!-- data.js is temporary... for testing -->
+    <script type="text/javascript" src="/static/js/data.js"></script>
+    <script type="text/javascript" src="/static/js/match.js"></script>
 
-  </body>
 </html>
