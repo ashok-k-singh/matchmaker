@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="static/css/styles.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+    <title>matchmaker</title>
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-light bg-light">
+      <span class="navbar-brand">matchmaker</span>
+    </nav>
+    <div class="container-fluid" style="background: linear-gradient(to right bottom, #3fb660, #4db165, #58ac69, #61a66e, #69a172, #76a77e, #83ac89, #90b295, #a7c4ab, #bfd7c1, #d7ead8, #effdf0);">
+      <div class="row py-5 justify-content-center" style="height: calc(100vh - 100px);">
+        <div class="col-7">
+          <div class="card">
+            <div class="card-header">
+              <span class="h3 text-dark align-middle"><a href="/">&lt;&nbsp;</a>Tell us about the new you!</span>
+            </div>
+            <div class="card-body">
+              <form method="post">
+                <div class="form-row mb-4">
+                  <div class="col">
+                     <input type="email" name="email" class="form-control" value="{{ user_profile['email'] }}" required autofocus> 
+                  </div>
+                  <div class="col">
+                    <input type="password" name="password" class="form-control" value="{{ user_profile['password'] }}" required>
+                  </div>
+                </div>
+                <div class="form-row mb-4">
+                  <div class="col">
+                    <input type="text" name="firstname" class="form-control" value="{{ user_profile['firstname'] }}" required>
+                  </div>
+                  <div class="col">
+                    <input type="text" name="lastname" class="form-control" value="{{ user_profile['lastname'] }}" required>
+                  </div>
+                </div>
+                <div class="form-row mb-4">
+                  <div class="col-3">
+                    <select class="custom-select" name="gender">
+                       <option value="0" {% if user_profile['gender'] == 0 %}
+                                         selected
+                                         {% endif %}
+                                         >Female</option>
+                        <option value="1" {% if user_profile['gender'] == 1 %}
+                                          selected
+                                          {% endif %}
+                                          >Male</option>
+                    </select>
+                  </div>
+                  <div class="col-3">
+                     <input type="number" name="age" class="form-control" value="{{ user_profile['age'] }}" min="18" max="125" required>
+                  </div>
+                  <div class="col-6">
+                    <select class="form-control" name="race" required>
+                        <option value="1"
+
+                           {% if user_profile['race'] == 1 %}
+                           selected
+                           {% endif %}
+
+                        >African-American</option>
+                        <option value="2"
+
+                           {% if user_profile['race'] == 2 %}
+                           selected
+                           {% endif %}
+
+                        >Caucasian-American</option>
+                        <option value="3"
+
+                           {% if user_profile['race'] == 3 %}
+                           selected
+                           {% endif %}
+
+                        >Hispanic-American</option>
+                        <option value="4"
+
+                           {% if user_profile['race'] == 4 %}
+                           selected
+                           {% endif %}
+
+                        >Asian-American</option>
+                        <option value="5"
+
+                           {% if user_profile['race'] == 5 %}
+                           selected
+                           {% endif %}
+
+                        >Native-American</option>
+                        <option value="6"
+
+                           {% if user_profile['race'] == 6 %}
+                           selected
+                           {% endif %}
+
+                        >Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row mb-4">
+                  <label for="fieldImpRace">How important is it to you that a person you date be of the same racial/ethnic background?</label>
+                  <select class="form-control" name="imprace">
+                    <option value="1"
+                           {% if user_profile['imprace'] == 1 %}
+                           selected
+                           {% endif %}
+                    >1 (irrelevant)</option>
+                    <option value="2"
+                           {% if user_profile['imprace'] == 2 %}
+                           selected
+                           {% endif %}
+                    >2</option>
+                    <option value="3"
+                           {% if user_profile['imprace'] == 3 %}
+                           selected
+                           {% endif %}
+                    >3</option>
+                    <option value="4"
+                           {% if user_profile['imprace'] == 4 %}
+                           selected
+                           {% endif %}
+                    >4</option>
+                    <option value="5"
+                           {% if user_profile['imprace'] == 5 %}
+                           selected
+                           {% endif %}
+                    >5</option>
+                    <option value="6"
+                           {% if user_profile['imprace'] == 6 %}
+                           selected
+                           {% endif %}
+                    >6</option>
+                    <option value="7"
+                           {% if user_profile['imprace'] == 7 %}
+                           selected
+                           {% endif %}
+                    >7</option>
+                    <option value="8"
+                           {% if user_profile['imprace'] == 8 %}
+                           selected
+                           {% endif %}
+                    >8</option>
+                    <option value="9"
+                           {% if user_profile['imprace'] == 9 %}
+                           selected
+                           {% endif %}
+                    >9</option>
+                    <option value="10"
+                           {% if user_profile['imprace'] == 10 %}
+                           selected
+                           {% endif %}
+                    >10 (a deal breaker)</option>
+                  </select>
+                </div>
+                <span class="d-flex mb-0">Please rate your opinion of your own attributes, on a scale of 1 to 10 (be honest!)...</span>
+                <div class="form-row mb-2">
+                  <div class="col col-form-label">
+                    <label for="fieldAttr">Attractive</label>
+                    <select class="form-control" name="attr">
+                      <option value="1"
+                           {% if user_profile['attr'] == 1 %}
+                           selected
+                           {% endif %}
+                      >1 (awful)</option>
+                      <option value="2"
+                           {% if user_profile['attr'] == 2 %}
+                           selected
+                           {% endif %}
+                      >2</option>
+                      <option value="3"
+                           {% if user_profile['attr'] == 3 %}
+                           selected
+                           {% endif %}
+                      >3</option>
+                      <option value="4"
+                           {% if user_profile['attr'] == 4 %}
+                           selected
+                           {% endif %}
+                      >4</option>
+                      <option value="5" selected
+                           {% if user_profile['attr'] == 5 %}
+                           selected
+                           {% endif %}
+                      >5</option>
+                      <option value="6"
+                           {% if user_profile['attr'] == 6 %}
+                           selected
+                           {% endif %}
+                      >6</option>
+                      <option value="7"
+                           {% if user_profile['attr'] == 7 %}
+                           selected
+                           {% endif %}
+                      >7</option>
+                      <option value="8"
+                           {% if user_profile['attr'] == 8 %}
+                           selected
+                           {% endif %}
+                      >8</option>
+                      <option value="9"
+                           {% if user_profile['attr'] == 9 %}
+                           selected
+                           {% endif %}
+                      >9</option>
+                      <option value="10"
+                           {% if user_profile['attr'] == 10 %}
+                           selected
+                           {% endif %}
+                      >10 (great)</option>
+                    </select>
+                  </div>
+                  <div class="col col-form-label">
+                    <label for="fieldSinc">Sincere</label>
+                    <select class="form-control" name="sinc">
+                      <option value="1"
+                           {% if user_profile['sinc'] == 1 %}
+                           selected
+                           {% endif %}
+                      >1 (awful)</option>
+                      <option value="2"
+                           {% if user_profile['sinc'] == 2 %}
+                           selected
+                           {% endif %}
+                      >2</option>
+                      <option value="3"
+                           {% if user_profile['sinc'] == 3 %}
+                           selected
+                           {% endif %}
+                      >3</option>
+                      <option value="4"
+                           {% if user_profile['sinc'] == 4 %}
+                           selected
+                           {% endif %}
+                      >4</option>
+                      <option value="5" selected
+                           {% if user_profile['sinc'] == 5 %}
+                           selected
+                           {% endif %}
+                      >5</option>
+                      <option value="6"
+                           {% if user_profile['sinc'] == 6 %}
+                           selected
+                           {% endif %}
+                      >6</option>
+                      <option value="7"
+                           {% if user_profile['sinc'] == 7 %}
+                           selected
+                           {% endif %}
+                      >7</option>
+                      <option value="8"
+                           {% if user_profile['sinc'] == 8 %}
+                           selected
+                           {% endif %}
+                      >8</option>
+                      <option value="9"
+                           {% if user_profile['sinc'] == 9 %}
+                           selected
+                           {% endif %}
+                      >9</option>
+                      <option value="10"
+                           {% if user_profile['sinc'] == 10 %}
+                           selected
+                           {% endif %}
+                      >10 (great)</option>
+                    </select>
+                  </div>
+                  <div class="col col-form-label">
+                    <label for="fieldFun">Fun</label>
+                    <select class="form-control" name="fun">
+                      <option value="1"
+                              {% if user_profile['fun'] == 1 %}
+                              selected
+                              {% endif %}
+                      >1 (awful)</option>
+                      <option value="2"
+                              {% if user_profile['fun'] == 2 %}
+                              selected
+                              {% endif %}
+                      >2</option>
+                      <option value="3"
+                              {% if user_profile['fun'] == 3 %}
+                              selected
+                              {% endif %}
+                      >3</option>
+                      <option value="4"
+                              {% if user_profile['fun'] == 4 %}
+                              selected
+                              {% endif %}
+                      >4</option>
+                      <option value="5" selected
+                              {% if user_profile['fun'] == 5 %}
+                              selected
+                              {% endif %}
+                      >5</option>
+                      <option value="6"
+                              {% if user_profile['fun'] == 6 %}
+                              selected
+                              {% endif %}
+                      >6</option>
+                      <option value="7"
+                              {% if user_profile['fun'] == 7 %}
+                              selected
+                              {% endif %}
+                      >7</option>
+                      <option value="8"
+                              {% if user_profile['fun'] == 8 %}
+                              selected
+                              {% endif %}
+                      >8</option>
+                      <option value="9"
+                              {% if user_profile['fun'] == 9 %}
+                              selected
+                              {% endif %}
+                      >9</option>
+                      <option value="10"
+                              {% if user_profile['fun'] == 10 %}
+                              selected
+                              {% endif %}
+                      >10 (great)</option>
+                    </select>
+                  </div>
+                  <div class="col col-form-label">
+                    <label for="fieldInt">Intelligent</label>
+                    <select class="form-control" name="intel">
+                      <option value="1"
+                              {% if user_profile['intel'] == 1 %}
+                              selected
+                              {% endif %}
+                      >1 (awful)</option>
+                      <option value="2"
+                              {% if user_profile['intel'] == 2 %}
+                              selected
+                              {% endif %}
+                      >2</option>
+                      <option value="3"
+                              {% if user_profile['intel'] == 3 %}
+                              selected
+                              {% endif %}
+                      >3</option>
+                      <option value="4"
+                              {% if user_profile['intel'] == 4 %}
+                              selected
+                              {% endif %}
+                      >4</option>
+                      <option value="5" selected
+                              {% if user_profile['intel'] == 5 %}
+                              selected
+                              {% endif %}
+                      >5</option>
+                      <option value="6"
+                              {% if user_profile['intel'] == 6 %}
+                              selected
+                              {% endif %}
+                      >6</option>
+                      <option value="7"
+                              {% if user_profile['intel'] == 7 %}
+                              selected
+                              {% endif %}
+                      >7</option>
+                      <option value="8"
+                              {% if user_profile['intel'] == 8 %}
+                              selected
+                              {% endif %}
+                      >8</option>
+                      <option value="9"
+                              {% if user_profile['intel'] == 9 %}
+                              selected
+                              {% endif %}
+                      >9</option>
+                      <option value="10"
+                              {% if user_profile['intel'] == 10 %}
+                              selected
+                              {% endif %}
+                      >10 (great)</option>
+                    </select>
+                  </div>
+                  <div class="col col-form-label">
+                    <label for="fieldAmb">Ambitious</label>
+                    <select class="form-control" name="amb">
+                      <option value="1"
+                              {% if user_profile['amb'] == 1 %}
+                              selected
+                              {% endif %}
+                      >1 (awful)</option>
+                      <option value="2"
+                              {% if user_profile['amb'] == 2 %}
+                              selected
+                              {% endif %}
+                      >2</option>
+                      <option value="3"
+                              {% if user_profile['amb'] == 3 %}
+                              selected
+                              {% endif %}
+                      >3</option>
+                      <option value="4"
+                              {% if user_profile['amb'] == 4 %}
+                              selected
+                              {% endif %}
+                      >4</option>
+                      <option value="5" selected
+                              {% if user_profile['amb'] == 5 %}
+                              selected
+                              {% endif %}
+                      >5</option>
+                      <option value="6"
+                              {% if user_profile['amb'] == 6 %}
+                              selected
+                              {% endif %}
+                      >6</option>
+                      <option value="7"
+                              {% if user_profile['amb'] == 7 %}
+                              selected
+                              {% endif %}
+                      >7</option>
+                      <option value="8"
+                              {% if user_profile['amb'] == 8 %}
+                              selected
+                              {% endif %}
+                      >8</option>
+                      <option value="9"
+                              {% if user_profile['amb'] == 9 %}
+                              selected
+                              {% endif %}
+                      >9</option>
+                      <option value="10"
+                              {% if user_profile['amb'] == 10 %}
+                              selected
+                              {% endif %}
+                      >10 (great)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row mb-4">
+                   <input type="text" name="photo" class="form-control" value="{{ user_profile['photo'] }}" min="10" max="255" required>
+                </div>
+                <button type="submit" class="btn btn-lg btn-success btn-block">
+                  <span class="lead">Next</span>
+                </button>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
