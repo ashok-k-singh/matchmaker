@@ -210,13 +210,9 @@ def matches():
 @app.route('/matchdata')
 @login_required
 def matchdata():
-
-    print(curr_user_profile)
-
+  
     # Get the current user data
     my_df = pd.DataFrame(curr_user_profile, index=[0])
-
-    print(my_df)
 
     #Get the other users data from the database 
     engine = create_engine(f"postgresql+psycopg2://{pguser}:{pgpassword}@{pghost}:{pgport}/{pgdatabase}")
