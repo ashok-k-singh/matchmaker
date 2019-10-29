@@ -1,4 +1,4 @@
-d3.json("/testroute", function(matchData) {
+d3.json("/matchdata", function(matchData) {
 
     var results = document.getElementById("matchResults");
 
