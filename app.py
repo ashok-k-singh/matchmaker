@@ -115,7 +115,6 @@ def login():
 
             return redirect(url_for('matches'))
         else:
-            print("here")
             flash(u'Invalid username or password', 'danger')
             return render_template("login.html")
 
@@ -128,14 +127,12 @@ def logout():
 
 # Route to Update
 @app.route('/update', methods=["POST", "GET"])
+@login_required
 def update():
     """For GET requests, display the signup form.
     For POSTS, login the current user by processing the form.
     """
     if request.method == 'GET':
-        for key, value in curr_user_profile.items():
-            print(f"{key}: {value}")
-
         return render_template("update.html",
                                user_profile = curr_user_profile)
 
@@ -144,10 +141,6 @@ def update():
         for key in curr_user_profile:
             if(key == 'iid'): continue  # omitting 'iid' field
             curr_user_profile[key] = request.form.get(key)
-
-    # login new user
-    user = User(curr_user_profile['email'])
-    login_user(user, remember=True)
 
     return redirect(url_for('matches'))
 
