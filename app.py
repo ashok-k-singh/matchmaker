@@ -168,11 +168,6 @@ def update():
     """
     if request.method == 'GET':
 
-        print("-"*20)
-        for key in curr_user_profile:
-            print(f"{key} => {curr_user_profile[key]}")
-        print("-"*20)
-
         return render_template("update.html",
                                user_profile = curr_user_profile)
 
@@ -181,11 +176,6 @@ def update():
         for key in curr_user_profile:
             if(key == 'iid'): continue  # omitting 'iid' field
             curr_user_profile[key] = request.form.get(key)
-
-        print("-"*20)
-        for key in curr_user_profile:
-            print(f"{key} => {curr_user_profile[key]}")
-        print("-"*20)
 
     return redirect(url_for('matches'))
 
