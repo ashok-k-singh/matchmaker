@@ -2,6 +2,15 @@ import pandas as pd
 import numpy as np
 import os
 
+# psycopg2 doesn't like numpy datatypes without the following...
+from psycopg2.extensions import register_adapter, AsIs
+def addapt_numpy_float64(numpy_float64):
+    return AsIs(numpy_float64)
+def addapt_numpy_int64(numpy_int64):
+    return AsIs(numpy_int64)
+register_adapter(np.float64, addapt_numpy_float64)
+register_adapter(np.int64, addapt_numpy_int64)
+
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import func, distinct
@@ -39,7 +48,6 @@ db = SQLAlchemy(app)
 Base = automap_base()
 
 session = Session(db.engine)
-
 
 # reflect the tables
 # database setup - step 3
@@ -202,8 +210,9 @@ def matches():
 @app.route('/matchdata')
 @login_required
 def matchdata():
+  
     # Get the current user data
-    my_df = pd.DataFrame(curr_user_profile)
+    my_df = pd.DataFrame(curr_user_profile, index=[0])
 
     #Get the other users data from the database 
     engine = create_engine(f"postgresql+psycopg2://{pguser}:{pgpassword}@{pghost}:{pgport}/{pgdatabase}")
@@ -234,13 +243,15 @@ def matchdata():
     # Run the random foreset model to predict the matches 
     matches = rfmodel.predict(X_match)
 
-    #build the iid list of partner matches  
+    # build the iid list of partner matches  
     match_list = []
-    for i in range(len(predictions)):
+    for i in range(len(matches)):
         if matches[i] == 1:                    
                 match_list.append(merge_df["iid_partner"][i]) 
     
-    return jsonify(match_list)
+    match_dictionary = getMatches(match_list)
+    
+    return jsonify(match_dictionary)
 
 # Callback used to reload user object from the user ID stored in the session
 @login_manager.user_loader
@@ -249,6 +260,18 @@ def load_user(email):
     if users_password:
         return User(email)
 
+def getMatches(iid_list):
+    # first build a list of matches from the list of iids  
+    match_list = [session.query(Users).filter_by(iid=iid).one() for iid in iid_list]
+
+    # now build a list of dictionaries for the matches.js function
+    matches = []
+    for match in match_list:
+        matches.append({'screenname': match.screenname,
+                        'age': int(match.age),
+                        'email': match.email,
+                        'photo': match.photo})
+    return matches
 
 if __name__ == "__main__":
     app.run(debug=True)
