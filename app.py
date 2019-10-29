@@ -136,7 +136,7 @@ def login():
         password = request.form.get("password")
         session = Session(db.engine)
 
-        users_passwords = session.query(Users.password).filter(Users.email==email).first()[0]
+        users_password = session.query(Users.password).filter(Users.email==email).first()[0]
 
         if users_password and users_password == password:
             user = User(email)
@@ -176,7 +176,7 @@ def update():
         for key in curr_user_profile:
             if(key == 'iid'): continue  # omitting 'iid' field
             curr_user_profile[key] = request.form.get(key)
-
+        
     return redirect(url_for('matches'))
 
 # Route to Signup
@@ -222,7 +222,7 @@ def matchdata():
     connection.close()
     
     # Get the opposite gender data to find the potential match 
-    if (my_df["gender"][0] == 1):
+    if (int(my_df["gender"][0]) == 1):
         opp_df = df[df["gender"] == 0] 
         my_df["merge_gender"] = 0 
     else:
