@@ -1,20 +1,17 @@
-// data is from data.js for now, need to call Ashok's route from here
-var matches = data;
+d3.json("/testroute", function(matchData) {
 
-function displayMatches(matchData) {
-
-    var el = document.getElementById("matchResults");
+    var results = document.getElementById("matchResults");
 
     if (matchData.length > 0) {
 
-        el.innerHTML += '<h1>Your matches:</h1></br>';
+        results.innerHTML += '<h1>Your matches:</h1></br>';
 
-        el.innerHTML += '<div id="matchDeck" class="card-columns">';
+        results.innerHTML += '<div id="matchDeck" class="card-columns">';
 
-        var dk = document.getElementById("matchDeck");
+        var deck = document.getElementById("matchDeck");
 
             matchData.forEach((match) => {
-                    dk.innerHTML += 
+                    deck.innerHTML += 
                     `
                     <div class="card" style="width:300px">
                         <img class="card-img-top" src="${match['photo']}" alt="${match['screenname']}">
@@ -27,8 +24,10 @@ function displayMatches(matchData) {
                     `
                     });      
     } else {
-        el.innerHTML += '<h4>Sorry! No matches yet. Check back later!</h4><br>'
-    }
-};
+        results.innerHTML += '<h4>Sorry! No matches yet. Check back later!</h4><br>'
+    };
 
-displayMatches(matches);
+    });
+
+
+

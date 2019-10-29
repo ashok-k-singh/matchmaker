@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import func, distinct
 
 from flask import Flask, flash, render_template
+from flask import jsonify
 from flask import request, redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
@@ -176,6 +177,30 @@ def signup():
 @login_required
 def matches():
     return render_template("matches.html", user_profile = curr_user_profile)
+
+# Route to Matches
+@app.route('/testroute')
+@login_required
+def testroute():
+    data = [{
+                'screenname': "Elodie197",
+                'age': 21,
+                'email': "elodie94@mm.com",
+                'photo': "https://uinames.com/api/photos/female/20.jpg"
+            },
+            {
+                'screenname': "Johana426",
+                'age': 26,
+                'email': "johana94@mm.com",
+                'photo': "https://uinames.com/api/photos/female/16.jpg"
+            },
+            {
+                'screenname': "Clarisa162",
+                'age': 20,
+                'email': "clarisa85@mm.com",
+                'photo': "https://uinames.com/api/photos/female/1.jpg"
+            }]
+    return jsonify(data)
 
 # Callback used to reload user object from the user ID stored in the session
 @login_manager.user_loader
