@@ -1,6 +1,11 @@
+import pandas as pd
+import numpy as np
+import os
+
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import func, distinct
+from sqlalchemy import create_engine
 
 from flask import Flask, flash, render_template
 from flask import request, redirect, url_for, jsonify
@@ -12,6 +17,7 @@ from flask_login import logout_user, current_user
 from user import User
 
 from config import pghost, pgport, pguser, pgpassword, pgdatabase
+from sklearn.ensemble import RandomForestClassifier
 
 app = Flask(__name__)
 
@@ -75,6 +81,28 @@ def init_curr_user_profile():
                          'fun': -1,
                          'intel': -1,
                          'amb': -1  }
+
+# Build the machine learning model
+
+# Get the matchmaker database and read into a dataframe
+engine = create_engine(f"postgresql+psycopg2://{pguser}:{pgpassword}@{pghost}:{pgport}/{pgdatabase}")
+connection = engine.connect()
+matchsql = f'SELECT * FROM "matchdata"'
+matchDate = pd.read_sql_query(matchsql,connection)
+connection.close()
+
+#Build the necessary data for the machine learning model
+X_data = matchDate.drop(["couple_id","f_intrace","samerace", "match", "m_intrace"], axis=1)
+X_data = X_data.round(decimals=0)
+y_data = matchDate["match"]
+
+#Split the data into train and test
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X_data, y_data, random_state=1, stratify=y_data)
+
+#Using the Random Forest Model, fit and train the data
+rfmodel = RandomForestClassifier(n_estimators=200)
+rfmodel = rfmodel.fit(X_train, y_train)
 
 
 #################################################
@@ -169,6 +197,50 @@ def signup():
 @login_required
 def matches():
     return render_template("matches.html", user_profile = curr_user_profile)
+
+# Route to Get the MatchData
+@app.route('/matchdata')
+@login_required
+def matchdata():
+    # Get the current user data
+    my_df = pd.DataFrame(curr_user_profile)
+
+    #Get the other users data from the database 
+    engine = create_engine(f"postgresql+psycopg2://{pguser}:{pgpassword}@{pghost}:{pgport}/{pgdatabase}")
+    connection = engine.connect()
+    # Get the database
+    user_sql = f'SELECT * FROM "Users"'
+    df = pd.read_sql_query(user_sql,connection)
+    connection.close()
+    
+    # Get the opposite gender data to find the potential match 
+    if (my_df["gender"][0] == 1):
+        opp_df = df[df["gender"] == 0] 
+        my_df["merge_gender"] = 0 
+    else:
+        opp_df = df[df["gender"] == 1]  
+        my_df["merge_gender"] = 1 
+    
+    #Merge current user data with opposite gender data from the database  
+    merge_df = pd.merge(opp_df, my_df, left_on='gender', right_on='merge_gender', how='left', suffixes=('_partner', '_user'))
+    merge_df = merge_df.sort_values(by=['iid_partner'])
+
+    #Prepare the data for running the model 
+    X_match = merge_df[["age_partner", "imprace_partner", "attr_partner", "sinc_partner", "intel_partner", 
+                "fun_partner", "amb_partner", "race_partner", "age_user", "imprace_user", 
+                "attr_user", "sinc_user", "intel_user", "fun_user", "amb_user", "race_user"]]
+    X_match = X_match.round(decimals=0)
+
+    # Run the random foreset model to predict the matches 
+    matches = rfmodel.predict(X_match)
+
+    #build the iid list of partner matches  
+    match_list = []
+    for i in range(len(predictions)):
+        if matches[i] == 1:                    
+                match_list.append(merge_df["iid_partner"][i]) 
+    
+    return jsonify(match_list)
 
 # Callback used to reload user object from the user ID stored in the session
 @login_manager.user_loader
