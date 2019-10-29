@@ -164,52 +164,52 @@
                     <label for="attr">Attractive</label>
                     <select class="form-control" name="attr">
                       <option value="1"
-                           {% if user_profile['attr']|int == 1 %}
+                           {% if user_profile['attr']|round|int == 1 %}
                            selected
                            {% endif %}
                       >1 (awful)</option>
                       <option value="2"
-                           {% if user_profile['attr']|int == 2 %}
+                           {% if user_profile['attr']|round|int == 2 %}
                            selected
                            {% endif %}
                       >2</option>
                       <option value="3"
-                           {% if user_profile['attr']|int == 3 %}
+                           {% if user_profile['attr']|round|int == 3 %}
                            selected
                            {% endif %}
                       >3</option>
                       <option value="4"
-                           {% if user_profile['attr']|int == 4 %}
+                           {% if user_profile['attr']|round|int == 4 %}
                            selected
                            {% endif %}
                       >4</option>
                       <option value="5"
-                           {% if user_profile['attr']|int == 5 %}
+                           {% if user_profile['attr']|round|int == 5 %}
                            selected
                            {% endif %}
                       >5</option>
                       <option value="6"
-                           {% if user_profile['attr']|int == 6 %}
+                           {% if user_profile['attr']|round|int == 6 %}
                            selected
                            {% endif %}
                       >6</option>
                       <option value="7"
-                           {% if user_profile['attr']|int == 7 %}
+                           {% if user_profile['attr']|round|int == 7 %}
                            selected
                            {% endif %}
                       >7</option>
                       <option value="8"
-                           {% if user_profile['attr']|int == 8 %}
+                           {% if user_profile['attr']|round|int == 8 %}
                            selected
                            {% endif %}
                       >8</option>
                       <option value="9"
-                           {% if user_profile['attr']|int == 9 %}
+                           {% if user_profile['attr']|round|int == 9 %}
                            selected
                            {% endif %}
                       >9</option>
                       <option value="10"
-                           {% if user_profile['attr']|int == 10 %}
+                           {% if user_profile['attr']|round|int == 10 %}
                            selected
                            {% endif %}
                       >10 (great)</option>
