@@ -20,7 +20,7 @@
         <div class="col-7">
           <div class="card">
             <div class="card-header">
-              <span class="h3 text-dark align-middle"><a href="/">&lt;&nbsp;</a>Tell us about the new you!</span>
+              <span class="h3 text-dark align-middle"><a href="matches">&lt;&nbsp;</a>Tell us about the new you!</span>
             </div>
             <div class="card-body">
               <form method="post">
@@ -43,11 +43,11 @@
                 <div class="form-row mb-4">
                   <div class="col-3">
                     <select class="custom-select" name="gender">
-                       <option value="0" {% if user_profile['gender'] == 0 %}
+                       <option value="0" {% if user_profile['gender'] == '0' %}
                                          selected
                                          {% endif %}
                                          >Female</option>
-                        <option value="1" {% if user_profile['gender'] == 1 %}
+                        <option value="1" {% if user_profile['gender'] == '1' %}
                                           selected
                                           {% endif %}
                                           >Male</option>
@@ -60,42 +60,42 @@
                     <select class="form-control" name="race" required>
                         <option value="1"
 
-                           {% if user_profile['race'] == 1 %}
+                           {% if user_profile['race'] == '1' %}
                            selected
                            {% endif %}
 
                         >African-American</option>
                         <option value="2"
 
-                           {% if user_profile['race'] == 2 %}
+                           {% if user_profile['race'] == '2' %}
                            selected
                            {% endif %}
 
                         >Caucasian-American</option>
                         <option value="3"
 
-                           {% if user_profile['race'] == 3 %}
+                           {% if user_profile['race'] == '3' %}
                            selected
                            {% endif %}
 
                         >Hispanic-American</option>
                         <option value="4"
 
-                           {% if user_profile['race'] == 4 %}
+                           {% if user_profile['race'] == '4' %}
                            selected
                            {% endif %}
 
                         >Asian-American</option>
                         <option value="5"
 
-                           {% if user_profile['race'] == 5 %}
+                           {% if user_profile['race'] == '5' %}
                            selected
                            {% endif %}
 
                         >Native-American</option>
                         <option value="6"
 
-                           {% if user_profile['race'] == 6 %}
+                           {% if user_profile['race'] == '6' %}
                            selected
                            {% endif %}
 
@@ -104,55 +104,55 @@
                   </div>
                 </div>
                 <div class="form-row mb-4">
-                  <label for="fieldImpRace">How important is it to you that a person you date be of the same racial/ethnic background?</label>
+                  <label for="imprace">How important is it to you that a person you date be of the same racial/ethnic background?</label>
                   <select class="form-control" name="imprace">
                     <option value="1"
-                           {% if user_profile['imprace'] == 1 %}
+                           {% if user_profile['imprace'] == '1' %}
                            selected
                            {% endif %}
                     >1 (irrelevant)</option>
                     <option value="2"
-                           {% if user_profile['imprace'] == 2 %}
+                           {% if user_profile['imprace'] == '2' %}
                            selected
                            {% endif %}
                     >2</option>
                     <option value="3"
-                           {% if user_profile['imprace'] == 3 %}
+                           {% if user_profile['imprace'] == '3' %}
                            selected
                            {% endif %}
                     >3</option>
                     <option value="4"
-                           {% if user_profile['imprace'] == 4 %}
+                           {% if user_profile['imprace'] == '4' %}
                            selected
                            {% endif %}
                     >4</option>
                     <option value="5"
-                           {% if user_profile['imprace'] == 5 %}
+                           {% if user_profile['imprace'] == '5' %}
                            selected
                            {% endif %}
                     >5</option>
                     <option value="6"
-                           {% if user_profile['imprace'] == 6 %}
+                           {% if user_profile['imprace'] == '6' %}
                            selected
                            {% endif %}
                     >6</option>
                     <option value="7"
-                           {% if user_profile['imprace'] == 7 %}
+                           {% if user_profile['imprace'] == '7' %}
                            selected
                            {% endif %}
                     >7</option>
                     <option value="8"
-                           {% if user_profile['imprace'] == 8 %}
+                           {% if user_profile['imprace'] == '8' %}
                            selected
                            {% endif %}
                     >8</option>
                     <option value="9"
-                           {% if user_profile['imprace'] == 9 %}
+                           {% if user_profile['imprace'] == '9' %}
                            selected
                            {% endif %}
                     >9</option>
                     <option value="10"
-                           {% if user_profile['imprace'] == 10 %}
+                           {% if user_profile['imprace'] == '10' %}
                            selected
                            {% endif %}
                     >10 (a deal breaker)</option>
@@ -161,110 +161,110 @@
                 <span class="d-flex mb-0">Please rate your opinion of your own attributes, on a scale of 1 to 10 (be honest!)...</span>
                 <div class="form-row mb-2">
                   <div class="col col-form-label">
-                    <label for="fieldAttr">Attractive</label>
+                    <label for="attr">Attractive</label>
                     <select class="form-control" name="attr">
                       <option value="1"
-                           {% if user_profile['attr'] == 1 %}
+                           {% if user_profile['attr'] == '1' %}
                            selected
                            {% endif %}
                       >1 (awful)</option>
                       <option value="2"
-                           {% if user_profile['attr'] == 2 %}
+                           {% if user_profile['attr'] == '2' %}
                            selected
                            {% endif %}
                       >2</option>
                       <option value="3"
-                           {% if user_profile['attr'] == 3 %}
+                           {% if user_profile['attr'] == '3' %}
                            selected
                            {% endif %}
                       >3</option>
                       <option value="4"
-                           {% if user_profile['attr'] == 4 %}
+                           {% if user_profile['attr'] == '4' %}
                            selected
                            {% endif %}
                       >4</option>
                       <option value="5" selected
-                           {% if user_profile['attr'] == 5 %}
+                           {% if user_profile['attr'] == '5' %}
                            selected
                            {% endif %}
                       >5</option>
                       <option value="6"
-                           {% if user_profile['attr'] == 6 %}
+                           {% if user_profile['attr'] == '6' %}
                            selected
                            {% endif %}
                       >6</option>
                       <option value="7"
-                           {% if user_profile['attr'] == 7 %}
+                           {% if user_profile['attr'] == '7' %}
                            selected
                            {% endif %}
                       >7</option>
                       <option value="8"
-                           {% if user_profile['attr'] == 8 %}
+                           {% if user_profile['attr'] == '8' %}
                            selected
                            {% endif %}
                       >8</option>
                       <option value="9"
-                           {% if user_profile['attr'] == 9 %}
+                           {% if user_profile['attr'] == '9' %}
                            selected
                            {% endif %}
                       >9</option>
                       <option value="10"
-                           {% if user_profile['attr'] == 10 %}
+                           {% if user_profile['attr'] == '10' %}
                            selected
                            {% endif %}
                       >10 (great)</option>
                     </select>
                   </div>
                   <div class="col col-form-label">
-                    <label for="fieldSinc">Sincere</label>
+                    <label for="sinc">Sincere</label>
                     <select class="form-control" name="sinc">
                       <option value="1"
-                           {% if user_profile['sinc'] == 1 %}
+                           {% if user_profile['sinc'] == '1' %}
                            selected
                            {% endif %}
                       >1 (awful)</option>
                       <option value="2"
-                           {% if user_profile['sinc'] == 2 %}
+                           {% if user_profile['sinc'] == '2' %}
                            selected
                            {% endif %}
                       >2</option>
                       <option value="3"
-                           {% if user_profile['sinc'] == 3 %}
+                           {% if user_profile['sinc'] == '3' %}
                            selected
                            {% endif %}
                       >3</option>
                       <option value="4"
-                           {% if user_profile['sinc'] == 4 %}
+                           {% if user_profile['sinc'] == '4' %}
                            selected
                            {% endif %}
                       >4</option>
                       <option value="5" selected
-                           {% if user_profile['sinc'] == 5 %}
+                           {% if user_profile['sinc'] == '5' %}
                            selected
                            {% endif %}
                       >5</option>
                       <option value="6"
-                           {% if user_profile['sinc'] == 6 %}
+                           {% if user_profile['sinc'] == '6' %}
                            selected
                            {% endif %}
                       >6</option>
                       <option value="7"
-                           {% if user_profile['sinc'] == 7 %}
+                           {% if user_profile['sinc'] == '7' %}
                            selected
                            {% endif %}
                       >7</option>
                       <option value="8"
-                           {% if user_profile['sinc'] == 8 %}
+                           {% if user_profile['sinc'] == '8' %}
                            selected
                            {% endif %}
                       >8</option>
                       <option value="9"
-                           {% if user_profile['sinc'] == 9 %}
+                           {% if user_profile['sinc'] == '9' %}
                            selected
                            {% endif %}
                       >9</option>
                       <option value="10"
-                           {% if user_profile['sinc'] == 10 %}
+                           {% if user_profile['sinc'] == '10' %}
                            selected
                            {% endif %}
                       >10 (great)</option>
@@ -274,162 +274,162 @@
                     <label for="fieldFun">Fun</label>
                     <select class="form-control" name="fun">
                       <option value="1"
-                              {% if user_profile['fun'] == 1 %}
+                              {% if user_profile['fun'] == '1' %}
                               selected
                               {% endif %}
                       >1 (awful)</option>
                       <option value="2"
-                              {% if user_profile['fun'] == 2 %}
+                              {% if user_profile['fun'] == '2' %}
                               selected
                               {% endif %}
                       >2</option>
                       <option value="3"
-                              {% if user_profile['fun'] == 3 %}
+                              {% if user_profile['fun'] == '3' %}
                               selected
                               {% endif %}
                       >3</option>
                       <option value="4"
-                              {% if user_profile['fun'] == 4 %}
+                              {% if user_profile['fun'] == '4' %}
                               selected
                               {% endif %}
                       >4</option>
                       <option value="5" selected
-                              {% if user_profile['fun'] == 5 %}
+                              {% if user_profile['fun'] == '5' %}
                               selected
                               {% endif %}
                       >5</option>
                       <option value="6"
-                              {% if user_profile['fun'] == 6 %}
+                              {% if user_profile['fun'] == '6' %}
                               selected
                               {% endif %}
                       >6</option>
                       <option value="7"
-                              {% if user_profile['fun'] == 7 %}
+                              {% if user_profile['fun'] == '7' %}
                               selected
                               {% endif %}
                       >7</option>
                       <option value="8"
-                              {% if user_profile['fun'] == 8 %}
+                              {% if user_profile['fun'] == '8' %}
                               selected
                               {% endif %}
                       >8</option>
                       <option value="9"
-                              {% if user_profile['fun'] == 9 %}
+                              {% if user_profile['fun'] == '9' %}
                               selected
                               {% endif %}
                       >9</option>
                       <option value="10"
-                              {% if user_profile['fun'] == 10 %}
+                              {% if user_profile['fun'] == '10' %}
                               selected
                               {% endif %}
                       >10 (great)</option>
                     </select>
                   </div>
                   <div class="col col-form-label">
-                    <label for="fieldInt">Intelligent</label>
+                    <label for="intel">Intelligent</label>
                     <select class="form-control" name="intel">
                       <option value="1"
-                              {% if user_profile['intel'] == 1 %}
+                              {% if user_profile['intel'] == '1' %}
                               selected
                               {% endif %}
                       >1 (awful)</option>
                       <option value="2"
-                              {% if user_profile['intel'] == 2 %}
+                              {% if user_profile['intel'] == '2' %}
                               selected
                               {% endif %}
                       >2</option>
                       <option value="3"
-                              {% if user_profile['intel'] == 3 %}
+                              {% if user_profile['intel'] == '3' %}
                               selected
                               {% endif %}
                       >3</option>
                       <option value="4"
-                              {% if user_profile['intel'] == 4 %}
+                              {% if user_profile['intel'] == '4' %}
                               selected
                               {% endif %}
                       >4</option>
                       <option value="5" selected
-                              {% if user_profile['intel'] == 5 %}
+                              {% if user_profile['intel'] == '5' %}
                               selected
                               {% endif %}
                       >5</option>
                       <option value="6"
-                              {% if user_profile['intel'] == 6 %}
+                              {% if user_profile['intel'] == '6' %}
                               selected
                               {% endif %}
                       >6</option>
                       <option value="7"
-                              {% if user_profile['intel'] == 7 %}
+                              {% if user_profile['intel'] == '7' %}
                               selected
                               {% endif %}
                       >7</option>
                       <option value="8"
-                              {% if user_profile['intel'] == 8 %}
+                              {% if user_profile['intel'] == '8' %}
                               selected
                               {% endif %}
                       >8</option>
                       <option value="9"
-                              {% if user_profile['intel'] == 9 %}
+                              {% if user_profile['intel'] == '9' %}
                               selected
                               {% endif %}
                       >9</option>
                       <option value="10"
-                              {% if user_profile['intel'] == 10 %}
+                              {% if user_profile['intel'] == '10' %}
                               selected
                               {% endif %}
                       >10 (great)</option>
                     </select>
                   </div>
                   <div class="col col-form-label">
-                    <label for="fieldAmb">Ambitious</label>
+                    <label for="amb">Ambitious</label>
                     <select class="form-control" name="amb">
                       <option value="1"
-                              {% if user_profile['amb'] == 1 %}
+                              {% if user_profile['amb'] == '1' %}
                               selected
                               {% endif %}
                       >1 (awful)</option>
                       <option value="2"
-                              {% if user_profile['amb'] == 2 %}
+                              {% if user_profile['amb'] == '2' %}
                               selected
                               {% endif %}
                       >2</option>
                       <option value="3"
-                              {% if user_profile['amb'] == 3 %}
+                              {% if user_profile['amb'] == '3' %}
                               selected
                               {% endif %}
                       >3</option>
                       <option value="4"
-                              {% if user_profile['amb'] == 4 %}
+                              {% if user_profile['amb'] == '4' %}
                               selected
                               {% endif %}
                       >4</option>
                       <option value="5" selected
-                              {% if user_profile['amb'] == 5 %}
+                              {% if user_profile['amb'] == '5' %}
                               selected
                               {% endif %}
                       >5</option>
                       <option value="6"
-                              {% if user_profile['amb'] == 6 %}
+                              {% if user_profile['amb'] == '6' %}
                               selected
                               {% endif %}
                       >6</option>
                       <option value="7"
-                              {% if user_profile['amb'] == 7 %}
+                              {% if user_profile['amb'] == '7' %}
                               selected
                               {% endif %}
                       >7</option>
                       <option value="8"
-                              {% if user_profile['amb'] == 8 %}
+                              {% if user_profile['amb'] == '8' %}
                               selected
                               {% endif %}
                       >8</option>
                       <option value="9"
-                              {% if user_profile['amb'] == 9 %}
+                              {% if user_profile['amb'] == '9' %}
                               selected
                               {% endif %}
                       >9</option>
                       <option value="10"
-                              {% if user_profile['amb'] == 10 %}
+                              {% if user_profile['amb'] == '10' %}
                               selected
                               {% endif %}
                       >10 (great)</option>

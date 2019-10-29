@@ -136,9 +136,7 @@ def login():
         password = request.form.get("password")
         session = Session(db.engine)
 
-        users_passwords = session.query(Users.password).filter(Users.email==email).first()
-        if users_passwords: users_password=users_passwords[0]
-        else: users_password=None
+        users_passwords = session.query(Users.password).filter(Users.email==email).first()[0]
 
         if users_password and users_password == password:
             user = User(email)
@@ -169,6 +167,12 @@ def update():
     For POSTS, login the current user by processing the form.
     """
     if request.method == 'GET':
+
+        print("-"*20)
+        for key in curr_user_profile:
+            print(f"{key} => {curr_user_profile[key]}")
+        print("-"*20)
+
         return render_template("update.html",
                                user_profile = curr_user_profile)
 
@@ -177,6 +181,11 @@ def update():
         for key in curr_user_profile:
             if(key == 'iid'): continue  # omitting 'iid' field
             curr_user_profile[key] = request.form.get(key)
+
+        print("-"*20)
+        for key in curr_user_profile:
+            print(f"{key} => {curr_user_profile[key]}")
+        print("-"*20)
 
     return redirect(url_for('matches'))
 
